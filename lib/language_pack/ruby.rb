@@ -597,6 +597,7 @@ params = CGI.parse(uri.query || "")
 
   def generate_jekyll_site
     puts "Building jekyll site"
+    puts "env PATH=#{ENV["PATH"]} bundle exec jekyll build 2>&1"
     run "env PATH=#{ENV["PATH"]} bundle exec jekyll build 2>&1"
     unless $? == 0
       error "Failed to generate site with jekyll."
